@@ -10,7 +10,6 @@ import "openzeppelin-contracts/utils/introspection/IERC165.sol";
  * @dev Core creator interface
  */
 interface ICreatorCore is IERC165 {
-
     event ExtensionRegistered(address indexed extension, address indexed sender);
     event ExtensionUnregistered(address indexed extension, address indexed sender);
     event ExtensionBlacklisted(address indexed extension, address indexed sender);
@@ -37,7 +36,11 @@ interface ICreatorCore is IERC165 {
      * extension address must point to a contract implementing ICreatorExtension.
      * Returns True if newly added, False if already added.
      */
-    function registerExtension(address extension, string calldata baseURI, bool baseURIIdentical) external;
+    function registerExtension(
+        address extension,
+        string calldata baseURI,
+        bool baseURIIdentical
+    ) external;
 
     /**
      * @dev add an extension.  Can only be called by contract owner or admin.
@@ -128,22 +131,32 @@ interface ICreatorCore is IERC165 {
     /**
      * @dev Set royalties of a token
      */
-    function setRoyalties(uint256 tokenId, address payable[] calldata receivers, uint256[] calldata basisPoints) external;
+    function setRoyalties(
+        uint256 tokenId,
+        address payable[] calldata receivers,
+        uint256[] calldata basisPoints
+    ) external;
 
     /**
      * @dev Set royalties of an extension
      */
-    function setRoyaltiesExtension(address extension, address payable[] calldata receivers, uint256[] calldata basisPoints) external;
+    function setRoyaltiesExtension(
+        address extension,
+        address payable[] calldata receivers,
+        uint256[] calldata basisPoints
+    ) external;
 
     /**
      * @dev Get royalites of a token.  Returns list of receivers and basisPoints
      */
     function getRoyalties(uint256 tokenId) external view returns (address payable[] memory, uint256[] memory);
-    
+
     // Royalty support for various other standards
     function getFeeRecipients(uint256 tokenId) external view returns (address payable[] memory);
-    function getFeeBps(uint256 tokenId) external view returns (uint[] memory);
-    function getFees(uint256 tokenId) external view returns (address payable[] memory, uint256[] memory);
-    function royaltyInfo(uint256 tokenId, uint256 value) external view returns (address, uint256);
 
+    function getFeeBps(uint256 tokenId) external view returns (uint256[] memory);
+
+    function getFees(uint256 tokenId) external view returns (address payable[] memory, uint256[] memory);
+
+    function royaltyInfo(uint256 tokenId, uint256 value) external view returns (address, uint256);
 }

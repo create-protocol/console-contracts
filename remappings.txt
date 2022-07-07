@@ -1,5 +1,8 @@
-forge-std/=lib/forge-std/src/
-openzeppelin-contracts/=lib/openzeppelin-contracts/
-ERC721A/=lib/ERC721A/contracts/
+openzeppelin-contracts/=lib/openzeppelin-contracts/contracts
 ds-test/=lib/forge-std/lib/ds-test/src/
+forge-std/=lib/forge-std/src/
+libraries-solidity/=lib/libraries-solidity/contracts/
+ERC721A/=lib/ERC721A/contracts/
 solmate/=lib/solmate/src/
+ERC721A-Upgradeable/=lib/ERC721A-Upgradeable/contracts/
+openzeppelin-contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/contracts
