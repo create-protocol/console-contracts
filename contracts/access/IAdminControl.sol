@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.13;
 
-import "openzeppelin-contracts/contracts/utils/introspection/IERC165.sol";
+import "openzeppelin-contracts/utils/introspection/IERC165.sol";
 
 /// @title IAdminControl
 /// @author https://twitter.com/0xsmrpn
