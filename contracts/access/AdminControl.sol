@@ -3,11 +3,10 @@ pragma solidity ^0.8.13;
 
 import "openzeppelin-contracts/contracts/utils/introspection/ERC165.sol";
 import "openzeppelin-contracts/contracts/utils/structs/EnumerableSet.sol";
-import "openzeppelin-contracts/contracts/access/Ownable.sol";
 import "solmate/auth/Owned.sol";
 import "./IAdminControl.sol";
 
-abstract contract AdminControl is Ownable, IAdminControl, ERC165 {
+abstract contract AdminControl is Owned, IAdminControl, ERC165 {
     using EnumerableSet for EnumerableSet.AddressSet;
 
     // Track registered admins
@@ -24,7 +23,7 @@ abstract contract AdminControl is Ownable, IAdminControl, ERC165 {
      * @dev Only allows approved admins to call the specified function
      */
     modifier adminRequired() {
-        require(owner() == msg.sender || _admins.contains(msg.sender), "AdminControl: Must be owner or admin");
+        require(owner == msg.sender || _admins.contains(msg.sender), "AdminControl: Must be owner or admin");
         _;
     }
 
@@ -33,7 +32,7 @@ abstract contract AdminControl is Ownable, IAdminControl, ERC165 {
      */
     function getAdmins() external view override returns (address[] memory admins) {
         admins = new address[](_admins.length());
-        for (uint256 i = 0; i < _admins.length(); i++) {
+        for (uint256 i = 0; i < _admins.length(); ++i) {
             admins[i] = _admins.at(i);
         }
         return admins;
@@ -63,6 +62,6 @@ abstract contract AdminControl is Ownable, IAdminControl, ERC165 {
      * @dev See {IAdminControl-isAdmin}.
      */
     function isAdmin(address admin) public view override returns (bool) {
-        return (owner() == admin || _admins.contains(admin));
+        return (owner == admin || _admins.contains(admin));
     }
 }
