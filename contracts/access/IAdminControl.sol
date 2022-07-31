@@ -4,7 +4,6 @@ pragma solidity ^0.8.13;
 import "openzeppelin-contracts/contracts/utils/introspection/IERC165.sol";
 
 /// @title IAdminControl
-/// @author 0xsmrpn.eth
 /// @notice You can use this contract for only the most basic simulation
 /// @dev Interface for Admin Control
 interface IAdminControl is IERC165 {

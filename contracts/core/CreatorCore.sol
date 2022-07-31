@@ -1,7 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.13;
-
-/// @author: 0xsmrpn.eth
+pragma solidity ^0.8.15;
 
 import "solmate/utils/ReentrancyGuard.sol";
 import "openzeppelin-contracts/contracts/utils/Strings.sol";

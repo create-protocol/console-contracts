@@ -1,12 +1,8 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.13;
+pragma solidity ^0.8.15;
 
 /**
  * @title ICreatorCore
- * @author 0xsmrpn.eth
- * @notice
- *
- *
  */
 
 import "openzeppelin-contracts/contracts/utils/introspection/IERC165.sol";
