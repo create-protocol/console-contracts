@@ -16,7 +16,7 @@ abstract contract CreatorCore is ReentrancyGuard, ICreatorCore, ERC165 {
     using EnumerableSet for EnumerableSet.AddressSet;
     using AddressUpgradeable for address;
 
-    uint256 public _tokenCount = 0;
+    uint256 _tokenCount = 0;
 
     // Track registered extensions data
     EnumerableSet.AddressSet internal _extensions;
