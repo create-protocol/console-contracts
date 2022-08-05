@@ -13,6 +13,8 @@ abstract contract AdminControl is Owned, IAdminControl, ERC165 {
     // Track registered admins
     EnumerableSet.AddressSet private _admins;
 
+    constructor(address _owner) Owned(_owner) {}
+
     /**
      * @dev See {IERC165-supportsInterface}.
      */
