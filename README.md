@@ -1,46 +1,59 @@
-# Solidity template
+# console contracts
 
-This is a template for GitHub repos with Solidity smart contracts using Forge and Hardhat. This template is used by the LooksRare team for Solidity-based repos. Feel free to use or get inspired to build your own templates!
+## The Create Console Creator Core Contracts
 
-## About this repo
+**A library for extendible creator contracts.**
 
-### Structure
+ * Implementation for ERC721
+ * Implementation for ERC1155
 
-It is a hybrid [Hardhat](https://hardhat.org/) repo that also requires [Foundry](https://book.getfoundry.sh/index.html) to run Solidity tests powered by the [ds-test library](https://github.com/dapphub/ds-test/).
+The Console Creator Core contracts provide creators with the ability to deploy an ERC721/ERC1155 NFT smart contract with basic minting functionality, on-chain royalties and permissioning.  Additionally, they provide a framework for extending the functionality of the smart contract by installing extension applications.
 
-> To install Foundry, please follow the instructions [here](https://book.getfoundry.sh/getting-started/installation.html).
+This enables creators to use the same underlying Manifold Creator Core contract to continue creating new and innovative NFT's and experiences.
 
-### Run tests
+## Overview
 
-- TypeScript tests are included in the `typescript` folder in the `test` folder at the root of the repo.
-- Solidity tests are included in the `foundry` folder in the `test` folder at the root of the repo.
+### Installation
 
-### Example of Foundry/Forge commands
-
-```shell
-forge build
-forge test
-forge test -vv
-forge tree
+```console
+$ git clone https://github.com/create-protocol/console-contracts
 ```
 
-### Example of Hardhat commands
+### Usage
 
-```shell
-npx hardhat accounts
-npx hardhat compile
-npx hardhat clean
-npx hardhat test
-npx hardhat node
-npx hardhat help
-REPORT_GAS=true npx hardhat test
-npx hardhat coverage
-npx hardhat run scripts/deploy.ts
-TS_NODE_FILES=true npx ts-node scripts/deploy.ts
-npx eslint '**/*.{js,ts}'
-npx eslint '**/*.{js,ts}' --fix
-npx prettier '**/*.{json,sol,md}' --check
-npx prettier '**/*.{json,sol,md}' --write
-npx solhint 'contracts/**/*.sol'
-npx solhint 'contracts/**/*.sol' --fix
+Once installed, you can use the contracts by creating a new file in the `contracts` folder.
+
+```solidity
+pragma solidity ^0.8.0;
+
+import "./ERC721Creator.sol";
+
+contract MyContract is ERC721Creator  {
+    constructor() ERC721Creator ("MyContract", "MC") {
+    }
+}
 ```
+And deploy this file on any EVM chain, a sample transaction looks like - https://goerli.etherscan.io/tx/0x5ce0afa84bfcce4530245d901bbdf97edb1a500ad345db4c6f57ec551fefdc5d
+
+The available contracts are:
+
+ * ERC721Creator
+ * ERC1155Creator
+
+### Extension Applications
+
+The most powerful aspect of Manifold Creator Core contracts is the ability to extend the functionality of your smart contract by adding new Extension Applications (Apps). Apps have the ability to override the following functionality for any token created by that App:
+
+**ERC721**
+ * mint
+ * tokenURI
+ * transferFrom/safeTransferFrom pre-transfer check
+ * burn pre-burn check
+
+**ERC1155**
+ * mint
+ * uri
+ * safeTransferFrom pre-transfer check
+ * burn pre-burn check
+
+In order to create an app, you'll need to implmenet one or more interfaces within contracts/extensions, deploy the new app and register it to the main Creator Core contract using the registerExtension function (which is only accesible to the contract owner or admins).
