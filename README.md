@@ -29,7 +29,7 @@ pragma solidity ^0.8.0;
 import "./ERC721Creator.sol";
 
 contract MyContract is ERC721Creator  {
-    constructor() ERC721Creator ("MyContract", "MC") {
+    constructor() ERC721Creator ("MyContract", "MC", msg.sender) {
     }
 }
 ```
