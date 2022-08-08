@@ -82,7 +82,7 @@ abstract contract ERC1155CreatorCore is CreatorCore, IERC1155CreatorCore {
     ) internal virtual {
         require(tokenIds.length > 0, "Invalid input");
         address extension = _tokensExtension[tokenIds[0]];
-        for (uint256 i = 0; i < tokenIds.length; i++) {
+        for (uint256 i = 0; i < tokenIds.length; ++i) {
             require(_tokensExtension[tokenIds[i]] == extension, "Mismatched token originators");
         }
         // Callback to originating extension if needed
@@ -104,7 +104,7 @@ abstract contract ERC1155CreatorCore is CreatorCore, IERC1155CreatorCore {
     ) internal {
         require(tokenIds.length > 0, "Invalid input");
         address extension = _tokensExtension[tokenIds[0]];
-        for (uint256 i = 0; i < tokenIds.length; i++) {
+        for (uint256 i = 0; i < tokenIds.length; ++i) {
             require(_tokensExtension[tokenIds[i]] == extension, "Mismatched token originators");
         }
         if (_extensionApproveTransfers[extension]) {

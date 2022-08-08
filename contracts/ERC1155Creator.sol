@@ -115,7 +115,7 @@ contract ERC1155Creator is AdminControl, ERC1155, ERC1155CreatorCore {
         extensionRequired
     {
         require(tokenIds.length == uris.length, "Invalid input");
-        for (uint256 i = 0; i < tokenIds.length; i++) {
+        for (uint256 i = 0; i < tokenIds.length; ++i) {
             _setTokenURIExtension(tokenIds[i], uris[i]);
         }
     }
@@ -146,7 +146,7 @@ contract ERC1155Creator is AdminControl, ERC1155, ERC1155CreatorCore {
      */
     function setTokenURI(uint256[] memory tokenIds, string[] calldata uris) external override adminRequired {
         require(tokenIds.length == uris.length, "Invalid input");
-        for (uint256 i = 0; i < tokenIds.length; i++) {
+        for (uint256 i = 0; i < tokenIds.length; ++i) {
             _setTokenURI(tokenIds[i], uris[i]);
         }
     }
@@ -177,7 +177,7 @@ contract ERC1155Creator is AdminControl, ERC1155, ERC1155CreatorCore {
         uint256[] calldata tokenIds,
         uint256[] calldata amounts
     ) public virtual override nonReentrant adminRequired {
-        for (uint256 i = 0; i < tokenIds.length; i++) {
+        for (uint256 i = 0; i < tokenIds.length; ++i) {
             require(_tokensExtension[tokenIds[i]] == address(this), "A token was created by an extension");
         }
         _mintExisting(address(this), to, tokenIds, amounts);
@@ -202,7 +202,7 @@ contract ERC1155Creator is AdminControl, ERC1155, ERC1155CreatorCore {
         uint256[] calldata tokenIds,
         uint256[] calldata amounts
     ) public virtual override nonReentrant extensionRequired {
-        for (uint256 i = 0; i < tokenIds.length; i++) {
+        for (uint256 i = 0; i < tokenIds.length; ++i) {
             require(_tokensExtension[tokenIds[i]] == address(msg.sender), "A token was not created by this extension");
         }
         _mintExisting(msg.sender, to, tokenIds, amounts);
@@ -228,7 +228,7 @@ contract ERC1155Creator is AdminControl, ERC1155, ERC1155CreatorCore {
         }
 
         // Assign tokenIds
-        for (uint256 i = 0; i < tokenIds.length; i++) {
+        for (uint256 i = 0; i < tokenIds.length; ++i) {
             _tokenCount++;
             tokenIds[i] = _tokenCount;
             // Track the extension that minted the token
@@ -246,12 +246,12 @@ contract ERC1155Creator is AdminControl, ERC1155, ERC1155CreatorCore {
             // Multiple receivers.  Receiving the same token
             if (amounts.length == 1) {
                 // Everyone receiving the same amount
-                for (uint256 i = 0; i < to.length; i++) {
+                for (uint256 i = 0; i < to.length; ++i) {
                     _mint(to[i], tokenIds[0], amounts[0], new bytes(0));
                 }
             } else {
                 // Everyone receiving different amounts
-                for (uint256 i = 0; i < to.length; i++) {
+                for (uint256 i = 0; i < to.length; ++i) {
                     _mint(to[i], tokenIds[0], amounts[i], new bytes(0));
                 }
             }
@@ -259,7 +259,7 @@ contract ERC1155Creator is AdminControl, ERC1155, ERC1155CreatorCore {
             _mintBatch(to[0], tokenIds, amounts, new bytes(0));
         }
 
-        for (uint256 i = 0; i < tokenIds.length; i++) {
+        for (uint256 i = 0; i < tokenIds.length; ++i) {
             if (i < uris.length && bytes(uris[i]).length > 0) {
                 _tokenURIs[tokenIds[i]] = uris[i];
             }
@@ -288,17 +288,17 @@ contract ERC1155Creator is AdminControl, ERC1155, ERC1155CreatorCore {
             _mintBatch(to[0], tokenIds, amounts, new bytes(0));
         } else if (tokenIds.length == 1 && amounts.length == 1) {
             // Mint of the same token/token amounts to various receivers
-            for (uint256 i = 0; i < to.length; i++) {
+            for (uint256 i = 0; i < to.length; ++i) {
                 _mint(to[i], tokenIds[0], amounts[0], new bytes(0));
             }
         } else if (tokenIds.length == 1 && to.length == amounts.length) {
             // Mint of the same token with different amounts to different receivers
-            for (uint256 i = 0; i < to.length; i++) {
+            for (uint256 i = 0; i < to.length; ++i) {
                 _mint(to[i], tokenIds[0], amounts[i], new bytes(0));
             }
         } else if (to.length == tokenIds.length && to.length == amounts.length) {
             // Mint of different tokens and different amounts to different receivers
-            for (uint256 i = 0; i < to.length; i++) {
+            for (uint256 i = 0; i < to.length; ++i) {
                 _mint(to[i], tokenIds[i], amounts[i], new bytes(0));
             }
         } else {

@@ -47,7 +47,7 @@ abstract contract ERC1155CreatorExtensionBurnable is AdminControl, IERC1155Creat
             "creator must implement IERC1155CreatorCore"
         );
         tokenIds = IERC1155CreatorCore(creator).mintExtensionNew(to, amounts, uris);
-        for (uint256 i = 0; i < tokenIds.length; i++) {
+        for (uint256 i = 0; i < tokenIds.length; ++i) {
             _tokenCreators[tokenIds[i]] = creator;
         }
         return tokenIds;
@@ -61,7 +61,7 @@ abstract contract ERC1155CreatorExtensionBurnable is AdminControl, IERC1155Creat
         uint256[] calldata tokenIds,
         uint256[] calldata
     ) public virtual override {
-        for (uint256 i = 0; i < tokenIds.length; i++) {
+        for (uint256 i = 0; i < tokenIds.length; ++i) {
             require(_tokenCreators[tokenIds[i]] == msg.sender, "Can only be called by token creator");
         }
     }

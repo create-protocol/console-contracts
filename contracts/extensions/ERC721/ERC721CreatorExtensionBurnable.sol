@@ -89,7 +89,7 @@ abstract contract ERC721CreatorExtensionBurnable is
             "creator must implement IERC721CreatorCore"
         );
         tokenIds = IERC721CreatorCore(creator).mintExtensionBatch(to, count);
-        for (uint16 i = 0; i < tokenIds.length; i++) {
+        for (uint16 i = 0; i < tokenIds.length; ++i) {
             _tokenCreators[tokenIds[i]] = creator;
         }
         return tokenIds;
@@ -105,7 +105,7 @@ abstract contract ERC721CreatorExtensionBurnable is
             "creator must implement IERC721CreatorCore"
         );
         tokenIds = IERC721CreatorCore(creator).mintExtensionBatch(to, uris);
-        for (uint16 i = 0; i < tokenIds.length; i++) {
+        for (uint16 i = 0; i < tokenIds.length; ++i) {
             _tokenCreators[tokenIds[i]] = creator;
         }
         return tokenIds;

@@ -114,7 +114,7 @@ contract ERC721Creator is AdminControl, ERC721, ERC721CreatorCore {
         extensionRequired
     {
         require(tokenIds.length == uris.length, "Invalid input");
-        for (uint256 i = 0; i < tokenIds.length; i++) {
+        for (uint256 i = 0; i < tokenIds.length; ++i) {
             _setTokenURIExtension(tokenIds[i], uris[i]);
         }
     }
@@ -145,7 +145,7 @@ contract ERC721Creator is AdminControl, ERC721, ERC721CreatorCore {
      */
     function setTokenURI(uint256[] memory tokenIds, string[] calldata uris) external override adminRequired {
         require(tokenIds.length == uris.length, "Invalid input");
-        for (uint256 i = 0; i < tokenIds.length; i++) {
+        for (uint256 i = 0; i < tokenIds.length; ++i) {
             _setTokenURI(tokenIds[i], uris[i]);
         }
     }
@@ -190,7 +190,7 @@ contract ERC721Creator is AdminControl, ERC721, ERC721CreatorCore {
         returns (uint256[] memory tokenIds)
     {
         tokenIds = new uint256[](count);
-        for (uint16 i = 0; i < count; i++) {
+        for (uint16 i = 0; i < count; ++i) {
             tokenIds[i] = _mintBase(to, "");
         }
         return tokenIds;
@@ -208,7 +208,7 @@ contract ERC721Creator is AdminControl, ERC721, ERC721CreatorCore {
         returns (uint256[] memory tokenIds)
     {
         tokenIds = new uint256[](uris.length);
-        for (uint256 i = 0; i < uris.length; i++) {
+        for (uint256 i = 0; i < uris.length; ++i) {
             tokenIds[i] = _mintBase(to, uris[i]);
         }
         return tokenIds;
@@ -268,7 +268,7 @@ contract ERC721Creator is AdminControl, ERC721, ERC721CreatorCore {
         returns (uint256[] memory tokenIds)
     {
         tokenIds = new uint256[](count);
-        for (uint16 i = 0; i < count; i++) {
+        for (uint16 i = 0; i < count; ++i) {
             tokenIds[i] = _mintExtension(to, "");
         }
         return tokenIds;
@@ -286,7 +286,7 @@ contract ERC721Creator is AdminControl, ERC721, ERC721CreatorCore {
         returns (uint256[] memory tokenIds)
     {
         tokenIds = new uint256[](uris.length);
-        for (uint256 i = 0; i < uris.length; i++) {
+        for (uint256 i = 0; i < uris.length; ++i) {
             tokenIds[i] = _mintExtension(to, uris[i]);
         }
     }
