@@ -6,3 +6,4 @@ gasReporterOutput.json
 typechain
 lib*
 README.md
+package.json

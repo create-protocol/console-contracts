@@ -1,19 +1,18 @@
 {
-  "name": "solidity-template",
+  "name": "creator-console-contracts",
   "version": "1.0.0",
-  "description": "Solidity smart contracts template ",
+  "description": "Simple code snippets to bootstrap a NFT project",
   "main": "index.js",
-  "author": "LooksRare",
+  "author": "CreateProtocol",
   "license": "MIT",
-  "private": true,
   "keywords": [
-    "looksrare"
+    "creatorconsole"
   ],
-  "homepage": "https://looksrare.org/",
-  "bugs": "https://github.com/LooksRare/solidity-template/issues",
+  "homepage": "https://createprotocol.org/",
+  "bugs": "https://github.com/create-protocol/console-contracts/issues",
   "repository": {
     "type": "git",
-    "url": "https://github.com/LooksRare/solidity-template.git"
+    "url": "https://github.com/create-protocol/console-contracts.git"
   },
   "scripts": {
     "compile": "hardhat compile",

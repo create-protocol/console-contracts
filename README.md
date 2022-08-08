@@ -16,7 +16,7 @@ This enables creators to use the same underlying Manifold Creator Core contract 
 ### Installation
 
 ```console
-$ git clone https://github.com/create-protocol/console-contracts
+$ npm install @createprotocol/creator-console-contracts 
 ```
 
 ### Usage
@@ -26,7 +26,7 @@ Once installed, you can use the contracts by creating a new file in the `contrac
 ```solidity
 pragma solidity ^0.8.0;
 
-import "./ERC721Creator.sol";
+import "@createprotocol/creator-console-contracts/contracts/ERC721Creator.sol";
 
 contract MyContract is ERC721Creator  {
     constructor() ERC721Creator ("MyContract", "MC", msg.sender) {
