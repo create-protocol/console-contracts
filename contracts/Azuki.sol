@@ -4,7 +4,7 @@ pragma solidity ^0.8.0;
 
 import "openzeppelin-contracts/contracts/access/Ownable.sol";
 import "openzeppelin-contracts/contracts/security/ReentrancyGuard.sol";
-import "./ERC721A.sol";
+import ".//ERC721A.sol";
 import "openzeppelin-contracts/contracts/utils/Strings.sol";
 
 contract Azuki is Ownable, ERC721A, ReentrancyGuard {
@@ -28,8 +28,10 @@ contract Azuki is Ownable, ERC721A, ReentrancyGuard {
     uint256 maxBatchSize_,
     uint256 collectionSize_,
     uint256 amountForAuctionAndDev_,
-    uint256 amountForDevs_
-  ) ERC721A("Azuki", "AZUKI", maxBatchSize_, collectionSize_) {
+    uint256 amountForDevs_,
+    string memory name,
+    string memory symbol
+  ) ERC721A(name, symbol, maxBatchSize_, collectionSize_) {
     maxPerAddressDuringMint = maxBatchSize_;
     amountForAuctionAndDev = amountForAuctionAndDev_;
     amountForDevs = amountForDevs_;
