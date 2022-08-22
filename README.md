@@ -9,7 +9,7 @@
 
 The Console Creator Core contracts provide creators with the ability to deploy an ERC721/ERC1155 NFT smart contract with basic minting functionality, on-chain royalties and permissioning.  Additionally, they provide a framework for extending the functionality of the smart contract by installing extension applications.
 
-This enables creators to use the same underlying Manifold Creator Core contract to continue creating new and innovative NFT's and experiences.
+This enables creators to use the same underlying Console Creator Core contract to continue creating new and innovative NFT's and experiences.
 
 ## Overview
 
@@ -42,7 +42,7 @@ The available contracts are:
 
 ### Extension Applications
 
-The most powerful aspect of Manifold Creator Core contracts is the ability to extend the functionality of your smart contract by adding new Extension Applications (Apps). Apps have the ability to override the following functionality for any token created by that App:
+The most powerful aspect of console Creator Core contracts is the ability to extend the functionality of your smart contract by adding new Extension Applications (Apps). Apps have the ability to override the following functionality for any token created by that App:
 
 **ERC721**
  * mint
