@@ -2,8 +2,6 @@
 
 pragma solidity ^0.8.0;
 
-/// @author: manifold.xyz
-
 import "openzeppelin-contracts-upgradeable/contracts/token/ERC721/ERC721Upgradeable.sol";
 import "./access/AdminControlUpgradeable.sol";
 
