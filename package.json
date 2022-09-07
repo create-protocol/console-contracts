@@ -1,5 +1,5 @@
 {
-  "name": "creator-console-contracts",
+  "name": "@createprotocol/console",
   "version": "1.1.0",
   "description": "Simple code snippets to bootstrap a NFT project",
   "main": "index.js",
