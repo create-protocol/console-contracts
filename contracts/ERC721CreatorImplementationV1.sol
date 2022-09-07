@@ -4,13 +4,19 @@ pragma solidity ^0.8.0;
 
 import "openzeppelin-contracts-upgradeable/contracts/token/ERC721/ERC721Upgradeable.sol";
 import "./access/AdminControlUpgradeable.sol";
-
 import "./core/ERC721CreatorCore.sol";
 
 /**
  * @dev ERC721Creator implementation
  */
 contract ERC721CreatorImplementation is AdminControlUpgradeable, ERC721Upgradeable, ERC721CreatorCore {
+    /**
+     * @dev Implementation version
+     */
+    function getVersion() public pure returns (uint8 version) {
+        return 1;
+    }
+
     /**
      * Initializer
      */
