@@ -1,6 +1,6 @@
 {
   "name": "creator-console-contracts",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Simple code snippets to bootstrap a NFT project",
   "main": "index.js",
   "author": "CreateProtocol",
