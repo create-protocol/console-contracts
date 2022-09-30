@@ -11,6 +11,9 @@ import "openzeppelin-contracts-upgradeable/contracts/utils/AddressUpgradeable.so
 import "./ICreatorCore.sol";
 import "../extensions/ICreatorExtensionTokenURI.sol";
 
+/**
+ * @dev Core creator implementation
+ */
 abstract contract CreatorCore is ReentrancyGuard, ICreatorCore, ERC165 {
     using Strings for uint256;
     using EnumerableSet for EnumerableSet.AddressSet;
