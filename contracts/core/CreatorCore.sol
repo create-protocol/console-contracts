@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.15;
 
-import "solmate/utils/ReentrancyGuard.sol";
+import "openzeppelin-contracts/contracts/security/ReentrancyGuard.sol";
 import "openzeppelin-contracts/contracts/utils/Strings.sol";
 import "openzeppelin-contracts/contracts/utils/introspection/ERC165.sol";
 import "openzeppelin-contracts/contracts/utils/introspection/ERC165Checker.sol";
