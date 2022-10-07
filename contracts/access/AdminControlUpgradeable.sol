@@ -2,8 +2,6 @@
 
 pragma solidity ^0.8.0;
 
-/// @author: manifold.xyz
-
 import "openzeppelin-contracts/contracts/utils/structs/EnumerableSet.sol";
 import "openzeppelin-contracts/contracts/utils/introspection/ERC165.sol";
 import "openzeppelin-contracts-upgradeable/contracts/access/OwnableUpgradeable.sol";
