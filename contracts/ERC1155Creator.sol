@@ -10,7 +10,7 @@ contract ERC1155Creator is Proxy {
 
     constructor() {
         assert(_IMPLEMENTATION_SLOT == bytes32(uint256(keccak256("eip1967.proxy.implementation")) - 1));
-        StorageSlot.getAddressSlot(_IMPLEMENTATION_SLOT).value = 0x0C2F5313E07C12Fc013F3905D746011ad17C109e;
+        StorageSlot.getAddressSlot(_IMPLEMENTATION_SLOT).value = 0xF4ac666C7f934cA766eb6DDd8B813f3BE60D562d;
         Address.functionDelegateCall(
             0x0C2F5313E07C12Fc013F3905D746011ad17C109e,
             abi.encodeWithSignature("initialize()")
